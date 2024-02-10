@@ -1,0 +1,6 @@
+[submodule "Lib/csh-console-framework"]
+	path = Lib/csh-console-framework
+	url = https://github.com/guluzadehh/csh-console-framework.git
+[submodule "Lib/csh-snake-game"]
+	path = Lib/csh-snake-game
+	url = https://github.com/guluzadehh/csh-snake-game.git
