@@ -20,7 +20,7 @@ public class StartGameCommand : ICommand
             game.Width = (int)width;
         }
 
-        if (app.Context.TryGetValue("size", out object? height))
+        if (app.Context.TryGetValue("height", out object? height))
         {
             game.Height = (int)height;
         }
