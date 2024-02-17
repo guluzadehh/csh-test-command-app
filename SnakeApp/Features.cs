@@ -10,6 +10,14 @@ public class SetArenaSizeFeature : BaseFeature
         try
         {
             SetSize("width");
+        }
+        catch (QuitInputRead)
+        {
+            return;
+        }
+
+        try
+        {
             SetSize("height");
         }
         catch (QuitInputRead)
@@ -20,20 +28,14 @@ public class SetArenaSizeFeature : BaseFeature
 
     private void SetSize(string dimension)
     {
-        int? value;
-
-        while (true)
-        {
-            App.Output.Write($"Enter {dimension}");
-            value = GetInt();
-            if (value != null) break;
-        }
+        App.Output.Write($"Enter {dimension}");
+        int value = GetInt();
 
         App.Context[dimension] = value;
         App.Output.WriteAndWait($"Arena {dimension} is set to {value}");
     }
 
-    private int? GetInt()
+    private int GetInt()
     {
         string inp = App.Input.Get();
 
@@ -43,9 +45,7 @@ public class SetArenaSizeFeature : BaseFeature
         }
         catch
         {
-            App.Output.WriteAndWait($"Wrong int format `{inp}`");
+            throw new BaseException($"Wrong int format `{inp}`");
         }
-
-        return null;
     }
 }
